@@ -3,64 +3,6 @@
 <head>
 <title>Apply for Services</title>
 
-<script>
-function generateReceipt(event) {
-    event.preventDefault();
-
-    // Get values
-    let name = document.querySelector('input[name="name"]').value;
-    let phone = document.querySelector('input[name="phone"]').value;
-    let service = document.querySelector('select[name="service"]').value;
-    let message = document.querySelector('textarea[name="message"]').value;
-
-    let date = new Date().toLocaleString();
-    let receiptNo = "RCPT" + Math.floor(Math.random() * 100000);
-
-    // Create receipt window
-    let receipt = `
-    <html>
-    <head>
-    <title>Receipt</title>
-    <style>
-    body {font-family:Arial;padding:20px;}
-    .box {border:2px solid #000;padding:20px;}
-    h2 {text-align:center;}
-    </style>
-    </head>
-
-    <body>
-    <div class="box">
-    <h2>Bhavani Cyber Centre</h2>
-    <p><strong>Receipt No:</strong> ${receiptNo}</p>
-    <p><strong>Date:</strong> ${date}</p>
-
-    <hr>
-
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Phone:</strong> ${phone}</p>
-    <p><strong>Service:</strong> ${service}</p>
-    <p><strong>Details:</strong> ${message}</p>
-
-    <hr>
-
-    <p><strong>Status:</strong> Application Received</p>
-    <p>Thank you for visiting Bhavani Cyber Centre</p>
-    </div>
-
-    <script>
-    window.print();
-    </script>
-
-    </body>
-    </html>
-    `;
-
-    let win = window.open('', '', 'width=600,height=700');
-    win.document.write(receipt);
-    win.document.close();
-}
-</script>
-<style>
 body {font-family:Arial;background:#f4f4f4;margin:0;}
 .container {
     max-width:500px;
@@ -110,5 +52,62 @@ button {
 
 </div>
 
+<script>
+function generateReceipt(event) {
+    event.preventDefault();
+
+    let name = document.querySelector('input[name="name"]').value;
+    let phone = document.querySelector('input[name="phone"]').value;
+    let service = document.querySelector('select[name="service"]').value;
+    let message = document.querySelector('textarea[name="message"]').value;
+
+    let date = new Date().toLocaleString();
+    let receiptNo = "RCPT" + Math.floor(Math.random() * 100000);
+
+    let receipt = `
+    <html>
+    <head>
+    <title>Receipt</title>
+    <style>
+    body {font-family:Arial;padding:20px;}
+    .box {border:2px solid #000;padding:20px;}
+    h2 {text-align:center;}
+    </style>
+    </head>
+
+    <body>
+    <div class="box">
+    <h2>Bhavani Cyber Centre</h2>
+    <p><strong>Receipt No:</strong> ${receiptNo}</p>
+    <p><strong>Date:</strong> ${date}</p>
+
+    <hr>
+
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Phone:</strong> ${phone}</p>
+    <p><strong>Service:</strong> ${service}</p>
+    <p><strong>Details:</strong> ${message}</p>
+
+    <hr>
+
+    <p><strong>Status:</strong> Application Received</p>
+    </div>
+
+    <script>
+    window.print();
+    </script>
+
+    </body>
+    </html>
+    `;
+
+    let win = window.open('', '', 'width=600,height=700');
+    win.document.write(receipt);
+    win.document.close();
+}
+</script>
+
+</body>
+</html>
 </body>
 </html>
