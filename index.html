@@ -29,13 +29,24 @@ footer { background:#002147; color:white; text-align:center; padding:10px; font-
 <body>
 
 <div class="topbar">Official Portal | Government Style Interface</div>
-
 <header>
-<img src="your-image-file-name.png" alt="Logo">
-<div>
-<h1>Venkatesh Rathod</h1>
-<p>Guest Librarian Educator & CSC Operator | Karnataka</p>
+<div class="logo-container">
+    <img src="logo.png" alt="Venkatesh Rathod Logo" class="logo">
 </div>
+  <style>.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #d4af37; /* gold border */
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    background: #000;
+}</style>
 </header>
 
 <nav>
