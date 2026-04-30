@@ -131,6 +131,14 @@ footer {
     text-align:center;
     padding:10px;
 }
+    .logo-svg svg {
+    filter: drop-shadow(0 0 8px gold);
+    transition: 0.3s;
+}
+
+.logo-svg svg:hover {
+    transform: scale(1.05);
+}
 </style>
 </head>
 
@@ -141,9 +149,77 @@ Official Portal | Government Style Interface
 </div>
 
 <header>
-<div class="logo-full">
-   <if>
-<img> src="https://github.com/bhavanicybercenter-dev/venkateshrathod/blob/main/logo.html" alt="VR Logo"></img> </if>  
+<div class="logo-svg">
+<svg viewBox="0 0 600 600">
+
+<defs>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff2a8"/>
+<stop offset="50%" stop-color="#ffd700"/>
+<stop offset="100%" stop-color="#b89600"/>
+</linearGradient>
+
+<linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#66ccff"/>
+<stop offset="50%" stop-color="#0066ff"/>
+<stop offset="100%" stop-color="#002266"/>
+</linearGradient>
+
+<filter id="glow">
+<feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="gold"/>
+</filter>
+</defs>
+
+<!-- Outer Ring -->
+<circle cx="300" cy="300" r="285" fill="none" stroke="url(#gold)" stroke-width="10"/>
+
+<!-- Inner Ring -->
+<circle cx="300" cy="300" r="260" fill="none" stroke="url(#blue)" stroke-width="3"/>
+
+<!-- VR -->
+<text x="260" y="210" font-size="110" fill="url(#blue)" filter="url(#glow)">V</text>
+<text x="350" y="210" font-size="110" fill="url(#gold)" filter="url(#glow)">R</text>
+
+<!-- Name -->
+<text x="300" y="290" font-size="32" fill="#fff" text-anchor="middle" font-family="serif">
+VENKATESH RATHOD
+</text>
+
+<!-- Place -->
+<text x="300" y="320" font-size="16" fill="url(#gold)" text-anchor="middle">
+GULEDAGUDDA
+</text>
+
+<!-- Services -->
+<g fill="url(#gold)" text-anchor="middle" font-size="12">
+<circle cx="120" cy="360" r="18"/>
+<circle cx="240" cy="360" r="18"/>
+<circle cx="360" cy="360" r="18"/>
+<circle cx="480" cy="360" r="18"/>
+
+<text x="120" y="400">LIBRARY</text>
+<text x="120" y="415">SERVICES</text>
+
+<text x="240" y="400">DIGITAL</text>
+<text x="240" y="415">SERVICES</text>
+
+<text x="360" y="400">GOVERNMENT</text>
+<text x="360" y="415">SERVICES</text>
+
+<text x="480" y="400">PRINTING</text>
+<text x="480" y="415">DOCS</text>
+</g>
+
+<!-- Tagline -->
+<text x="300" y="460" font-size="14" fill="#ccc" text-anchor="middle">
+Helping Students & Public
+</text>
+
+<text x="300" y="480" font-size="14" fill="url(#gold)" text-anchor="middle">
+Digital & Academic Services
+</text>
+
+</svg>
 </div>
 <div>
 <h1>Venkatesh Rathod</h1>
