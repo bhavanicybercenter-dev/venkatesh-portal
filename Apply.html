@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Apply for Services</title>
+<title>Apply for Service</title>
 
+<style>
 body {font-family:Arial;background:#f4f4f4;margin:0;}
 .container {
     max-width:500px;
@@ -30,14 +31,14 @@ button {
 
 <div class="container">
 <h2>Apply for Service</h2>
-    
+
 <form onsubmit="generateReceipt(event)">
-    
+
 <input type="text" name="name" placeholder="Full Name" required>
 <input type="tel" name="phone" placeholder="Mobile Number" required>
 
-<select name="service">
-<option>Select Service</option>
+<select name="service" required>
+<option value="">Select Service</option>
 <option>Aadhaar</option>
 <option>PAN Card</option>
 <option>Income Certificate</option>
@@ -56,55 +57,55 @@ button {
 function generateReceipt(event) {
     event.preventDefault();
 
-    let name = document.querySelector('input[name="name"]').value;
-    let phone = document.querySelector('input[name="phone"]').value;
-    let service = document.querySelector('select[name="service"]').value;
-    let message = document.querySelector('textarea[name="message"]').value;
+    let name = document.querySelector('[name="name"]').value;
+    let phone = document.querySelector('[name="phone"]').value;
+    let service = document.querySelector('[name="service"]').value;
+    let message = document.querySelector('[name="message"]').value;
 
     let date = new Date().toLocaleString();
-    let receiptNo = "RCPT" + Math.floor(Math.random() * 100000);
+    let receiptNo = "RCPT" + Math.floor(Math.random() * 1000000);
 
-    let receipt = `
-    <html>
-    <head>
-    <title>Receipt</title>
-    <style>
-    body {font-family:Arial;padding:20px;}
-    .box {border:2px solid #000;padding:20px;}
-    h2 {text-align:center;}
-    </style>
-    </head>
+    let receiptWindow = window.open('', '_blank');
 
-    <body>
-    <div class="box">
-    <h2>Bhavani Cyber Centre</h2>
-    <p><strong>Receipt No:</strong> ${receiptNo}</p>
-    <p><strong>Date:</strong> ${date}</p>
+    receiptWindow.document.write(`
+        <html>
+        <head>
+        <title>Receipt</title>
+        <style>
+        body {font-family:Arial;padding:20px;}
+        .box {border:2px solid black;padding:20px;}
+        h2 {text-align:center;}
+        </style>
+        </head>
+        <body>
+        <div class="box">
+        <h2>Bhavani Cyber Centre</h2>
+        <p><strong>Receipt No:</strong> ${receiptNo}</p>
+        <p><strong>Date:</strong> ${date}</p>
 
-    <hr>
+        <hr>
 
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Phone:</strong> ${phone}</p>
-    <p><strong>Service:</strong> ${service}</p>
-    <p><strong>Details:</strong> ${message}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Service:</strong> ${service}</p>
+        <p><strong>Details:</strong> ${message}</p>
 
-    <hr>
+        <hr>
 
-    <p><strong>Status:</strong> Application Received</p>
-    </div>
+        <p><strong>Status:</strong> Application Received</p>
+        </div>
 
-    <script>
-    window.print();
-    </script>
+        <script>
+        window.print();
+        <\/script>
 
-    </body>
-    </html>
-    `;
+        </body>
+        </html>
+    `);
 
-    let win = window.open('', '', 'width=600,height=700');
-    win.document.write(receipt);
-    win.document.close();
+    receiptWindow.document.close();
 }
 </script>
+
 </body>
 </html>
